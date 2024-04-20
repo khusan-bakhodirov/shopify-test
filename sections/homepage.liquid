@@ -1,0 +1,99 @@
+<header class="flex gap-6 py-4 px-8 items-center shadow-lg">
+  <div>
+    <img
+      src="{{ 'logo.svg' | asset_url }}"
+      alt="Your Image Alt Text"
+      width='{{section.settings.logo_width}}px'
+      height='50px'>
+  </div>
+  <button class="bg-red-500 px-3 py-2 text-white flex items-center">
+    {% render 'menuicon' %}
+    Catalog
+  </button>
+  <form action="/search" method="get">
+    <input
+      type="text"
+      id="search"
+      name="q"
+      class='border-[1px] px-2 py-1 border-black flex-1'
+      placeholder="{{section.settings.input_placeholder}}">
+
+    <button type="submit">Search</button>
+  </form>
+  <nav class=''>
+    {% if section.settings.hide_menu == true %}
+      <div></div>
+    {% elsif section.settings.hide_menu == false %}
+      <ul class='flex gap-8'>
+        {% for link in linklists.main-menu.links %}
+          <li class='flex flex-col gap-1'>
+            <a href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+    {% endif %}
+
+  </nav>
+  <div>
+    {% render 'cartIcon' %}
+  </div>
+</header>
+
+{% schema %}
+  {
+    "name": "Homepage",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_author",
+        "default": true,
+        "label": "Display Author Name"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_published_date",
+        "default": true,
+        "label": "Display Published Date"
+      },
+      {
+        "type": "text",
+        "id": "input_placeholder",
+        "default": "search",
+        "label": "input placeholder text"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_menu",
+        "default": false,
+        "label": "hide menu"
+      }, {
+        "type": "range",
+        "max": 100,
+        "step": 1,
+        "min": 1,
+        "default": 100,
+        "id": "logo_width",
+        "label": "logo width"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "subtotal",
+        "name": "Subtotal",
+        "limit": 1
+      }, {
+        "type": "update_button",
+        "name": "Update Button",
+        "limit": 1
+      }, {
+        "type": "checkout_button",
+        "name": "Checkout Button",
+        "limit": 1
+      }
+    ]
+
+  }
+{% endschema %}

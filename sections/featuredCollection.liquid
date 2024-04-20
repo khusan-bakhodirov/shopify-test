@@ -1,0 +1,28 @@
+<div>
+  Featured collection
+  {{section.blocks.Slide}}
+</div>
+
+{% schema %}
+  {
+    "name": "featured collection",
+    "presets": [
+      {
+        "name": "featured collection"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Slide",
+        "type": "slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,77 @@
+<div class="flex max-w-[1280px] px-10 mx-auto mt-12 gap-5">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'big_carousel' %}
+
+        <div class="swiper mySwiper w-3/5 h-64 rounded-lg ">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img
+                src="https://cms.mvideo.ru/magnoliaPublic/.imaging/webp/dam/b8a064f4-b5aa-4706-a18b-0ea70db044de"
+                class="w-full h-full object-cover"
+                alt="carousel image"
+                width="100%"
+                height="100%"></div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev "></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+
+      {% else %}
+        <div class="swiper mySwiper w-2/5 h-64 rounded-lg">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <a href="{{routes.cart_url}}"><img
+                  src="https://img.mvideo.ru/Pdb/small_pic/200/400152899b.jpg"
+                  alt="carousel image"
+                  width="100"
+                  height="100"
+                  class="w-full h-full object-cover"></a>
+            </div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "carousel",
+    "blocks": [
+      {
+        "type": "big_carousel",
+        "name": "big carousel",
+        "limit": 1
+      }, {
+        "type": "small_carousel",
+        "name": "small carousel",
+        "limit": 1
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,9 @@
+{
+    "name": "search",
+    "sections": {
+        "search": {
+            "type": "search-results"
+        }
+    },
+    "order": ["search"]
+}
