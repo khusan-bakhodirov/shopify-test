@@ -1,9 +1,18 @@
 {
-    "name": "search",
-    "sections": {
-        "search": {
-            "type": "search-results"
-        }
+  "sections": {
+    "search": {
+      "type": "search-results",
+      "settings": {
+      }
     },
-    "order": ["search"]
+    "featured_collection_rCNnRz": {
+      "type": "featuredCollection",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "search",
+    "featured_collection_rCNnRz"
+  ]
 }
